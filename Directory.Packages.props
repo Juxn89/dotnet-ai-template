@@ -1,0 +1,81 @@
+<Project>
+	<!--
+		Central Package Management. Project files reference packages WITHOUT a Version attribute.
+		Rule: the newest version that is at least two weeks old on the day it is added, verified against
+		api.nuget.org, with an OSI licence. Day 1: 27 Oct 2026 (cut-off 13 Oct). Groups for later days (AI) are added on
+		the day they are first needed, with that day's verification. In a project made from this template, re-verify
+		every version on its day 1.
+	-->
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+		<CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+	</PropertyGroup>
+
+	<!-- Time: NodaTime 3.3.6 is from 22 Oct, so 3.3.5 (30 Sep 2026), Apache-2.0. -->
+	<ItemGroup Label="Time">
+		<PackageVersion Include="NodaTime" Version="3.3.5" />
+		<PackageVersion Include="NodaTime.Testing" Version="3.3.5" />
+		<PackageVersion Include="NodaTime.Serialization.SystemTextJson" Version="1.4.0" />
+	</ItemGroup>
+
+	<!--
+		Persistence: Npgsql 10.0.3 (27 May 2026) and its EF Core provider and NodaTime plugin 10.0.3 (10 Jul 2026),
+		PostgreSQL licence. EF Core 10.0.14 is from 25 Oct, so 10.0.12 (8 Sep), MIT. EFCore.NamingConventions 10.0.1
+		(22 Jan 2026), Apache-2.0.
+	-->
+	<ItemGroup Label="Persistence">
+		<PackageVersion Include="Npgsql" Version="10.0.3" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.12" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.12" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12" />
+		<PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+		<PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" Version="10.0.3" />
+		<PackageVersion Include="EFCore.NamingConventions" Version="10.0.1" />
+	</ItemGroup>
+
+	<!-- Options and logging abstractions for the ports, 10.0.12 like EF Core (MIT). -->
+	<ItemGroup Label="Extensions">
+		<PackageVersion Include="Microsoft.Extensions.Options" Version="10.0.12" />
+		<PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.12" />
+		<PackageVersion Include="Microsoft.Extensions.Options.DataAnnotations" Version="10.0.12" />
+		<PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.12" />
+	</ItemGroup>
+
+	<!--
+		Aspire 13.6.4 is from 24 Oct, so 13.6.1 (7 Oct 2026), MIT; the AppHost SDK version is in its project file.
+		OpenTelemetry 1.20.x is from 20-21 Oct, so 1.19.1 / 1.19.0 (Sep 2026), Apache-2.0. Resilience and service
+		discovery 10.11.0 are from 14 Oct, so 10.10.0 (9 Sep), MIT.
+	-->
+	<ItemGroup Label="Aspire">
+		<PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="13.6.1" />
+		<PackageVersion Include="Aspire.Hosting.JavaScript" Version="13.6.1" />
+		<!--
+			Transitive pin: Aspire.Hosting 13.6.1 brings MessagePack 2.5.302, vulnerable to GHSA-qhrr-8q5h-9q3h, and
+			NuGet audit fails the restore on it. 2.5.307 (3 Oct 2026) is the newest patch on the 2.x line Aspire uses;
+			3.x is a major version Aspire does not target. MIT.
+		-->
+		<PackageVersion Include="MessagePack" Version="2.5.307" />
+		<PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.10.0" />
+		<PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="10.10.0" />
+		<PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.19.1" />
+		<PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.19.1" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.19.0" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.19.0" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.19.0" />
+	</ItemGroup>
+
+	<!--
+		Tests. Microsoft.NET.Test.Sdk 18.11.0 is from 13 Oct, so 18.10.1 (15 Sep), MIT. xUnit stays on v2 (2.9.3,
+		Apache-2.0) with runner 3.1.5: ArchUnitNET's adapter needs v2, and runner 4.x targets v3. ArchUnitNET 0.13.5 is
+		from 26 Oct, so 0.13.4 (20 Aug), Apache-2.0. Testcontainers 4.16.0 (8 Oct), MIT. Mvc.Testing 10.0.12, MIT.
+	-->
+	<ItemGroup Label="Tests">
+		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
+		<PackageVersion Include="xunit" Version="2.9.3" />
+		<PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+		<PackageVersion Include="TngTech.ArchUnitNET" Version="0.13.4" />
+		<PackageVersion Include="TngTech.ArchUnitNET.xUnit" Version="0.13.4" />
+		<PackageVersion Include="Testcontainers.PostgreSql" Version="4.16.0" />
+		<PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.12" />
+	</ItemGroup>
+</Project>

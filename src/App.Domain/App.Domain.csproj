@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Plain C# plus NodaTime, and nothing else, by rule (AGENTS.md): an architecture test fails on any other reference. -->
+	<PropertyGroup>
+		<RootNamespace>App.Domain</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NodaTime" />
+	</ItemGroup>
+</Project>

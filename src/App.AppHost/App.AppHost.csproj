@@ -1,0 +1,15 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.6.1">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<AspireUseCliBundle>true</AspireUseCliBundle>
+		<UserSecretsId>dotnet-ai-template-apphost</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\App.Api\App.Api.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Aspire.Hosting.PostgreSQL" />
+	</ItemGroup>
+</Project>

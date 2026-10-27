@@ -1,0 +1,32 @@
+# Dependabot opens security updates on its own whenever an advisory affects the lockfile (repo setting
+# "Dependabot security updates"). This file groups them into one pull request per ecosystem instead of one per
+# package. Version updates stay off (open-pull-requests-limit: 0): versions are bumped by hand, at least two
+# weeks after release. No target-branch: security updates always go to the default branch, and a target-branch
+# would limit this file to version updates, dropping the grouping.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    groups:
+      npm-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+    commit-message:
+      prefix: chore(deps)
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    groups:
+      actions-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+    commit-message:
+      prefix: chore(ci)

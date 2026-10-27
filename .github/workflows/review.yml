@@ -1,0 +1,25 @@
+name: AI review
+
+# Reviewed by my own bot (github.com/Juxn89/claude-pr-review-bot): one review per PR, comments only,
+# it can never approve or block. Without the ANTHROPIC_API_KEY secret it runs in dry-run mode.
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Juxn89/claude-pr-review-bot@v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          model: claude-haiku-5-5
+          project-context: >-
+            A .NET 10 / C# 14 template for AI products. Layers: Domain (NodaTime only) <- Application (use cases
+            and ports) <- Infrastructure (EF Core, Claude) <- Api. Every model call is metered and capped. No
+            magic strings or numbers. Tabs for indentation.
