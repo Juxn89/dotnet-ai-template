@@ -1,0 +1,149 @@
+{
+  "model": "claude-haiku-5-5",
+  "date": "2026-10-27",
+  "tags": 0.8,
+  "mentions": 1,
+  "language": 1,
+  "averageCostUsd": 0.000098,
+  "totalCostUsd": 0.0009813,
+  "items": [
+    {
+      "id": "n01",
+      "tagsRight": false,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Llamar al proveedor de café el lunes para pedir 10 kilos y confirmar el precio de la factura.",
+      "tags": [
+        "shopping",
+        "money"
+      ],
+      "error": null,
+      "costUsd": 0.0000992,
+      "latencyMs": 3423
+    },
+    {
+      "id": "n02",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Recordatorio de una cita con la dentista el jueves a las 4, para llevar la radiografía y preguntar por la limpieza.",
+      "tags": [
+        "health",
+        "personal"
+      ],
+      "error": null,
+      "costUsd": 0.0001027,
+      "latencyMs": 2214
+    },
+    {
+      "id": "n03",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Lista de compras para el súper: leche, huevos, pan integral, jabón y bolsas de basura antes del fin de semana.",
+      "tags": [
+        "shopping"
+      ],
+      "error": null,
+      "costUsd": 0.0001005,
+      "latencyMs": 1704
+    },
+    {
+      "id": "n04",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Revisar los gastos de octubre, considerando la subida de la luz, el pago del alquiler el día 5 y el ahorro para el seguro.",
+      "tags": [
+        "money"
+      ],
+      "error": null,
+      "costUsd": 0.0001042,
+      "latencyMs": 2551
+    },
+    {
+      "id": "n05",
+      "tagsRight": false,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Propone ofrecer envío gratis los martes durante un mes para aumentar las ventas de la tienda en línea.",
+      "tags": [
+        "ideas",
+        "work",
+        "money"
+      ],
+      "error": null,
+      "costUsd": 0.0001015,
+      "latencyMs": 1034
+    },
+    {
+      "id": "n06",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Reunión del equipo el miércoles para revisar los pedidos atrasados y repartir las tareas de la semana.",
+      "tags": [
+        "work"
+      ],
+      "error": null,
+      "costUsd": 0.0001007,
+      "latencyMs": 1861
+    },
+    {
+      "id": "n07",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Pay the packaging supplier's invoice by Friday and request the 5% early payment discount.",
+      "tags": [
+        "money",
+        "work"
+      ],
+      "error": null,
+      "costUsd": 0.0000923,
+      "latencyMs": 1093
+    },
+    {
+      "id": "n08",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Plan to run 5 km three times a week and schedule a doctor check-up before the half marathon.",
+      "tags": [
+        "health",
+        "personal"
+      ],
+      "error": null,
+      "costUsd": 0.0000925,
+      "latencyMs": 1183
+    },
+    {
+      "id": "n09",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Buy flowers and a book for mom's birthday on Sunday, ordering online by Thursday.",
+      "tags": [
+        "shopping",
+        "personal"
+      ],
+      "error": null,
+      "costUsd": 0.0000944,
+      "latencyMs": 1010
+    },
+    {
+      "id": "n10",
+      "tagsRight": true,
+      "mentions": true,
+      "languageRight": true,
+      "summary": "Launch a monthly newsletter of recipes featuring the shop's coffee to win back customers.",
+      "tags": [
+        "ideas",
+        "work"
+      ],
+      "error": null,
+      "costUsd": 0.0000933,
+      "latencyMs": 1776
+    }
+  ]
+}

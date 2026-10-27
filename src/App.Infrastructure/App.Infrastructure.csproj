@@ -10,11 +10,19 @@
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" />
 		<PackageReference Include="EFCore.NamingConventions" />
+		<PackageReference Include="Anthropic" />
+		<PackageReference Include="Microsoft.Extensions.AI" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
 		<PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<!-- Prompts: Markdown in the repo, embedded so they ship with the assembly. -->
+		<EmbeddedResource Include="Ai/Prompts/*.md" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<InternalsVisibleTo Include="App.Integration.Tests" />
+		<InternalsVisibleTo Include="App.Evals" />
 	</ItemGroup>
 </Project>

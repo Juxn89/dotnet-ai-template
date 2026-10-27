@@ -4,7 +4,12 @@ using App.Application.Common;
 using App.Domain.Notes;
 using NodaTime;
 
-/// <summary>Where notes are kept.</summary>
+/// <summary>A note and its summary, when it has one.</summary>
+/// <param name="Note">The note.</param>
+/// <param name="Summary">Its summary, or null.</param>
+public sealed record NoteEntry(Note Note, NoteSummary? Summary);
+
+/// <summary>Where notes and their summaries are kept.</summary>
 public interface INoteStore
 {
 	/// <summary>Saves a new note.</summary>
@@ -13,17 +18,23 @@ public interface INoteStore
 	/// <returns>A task.</returns>
 	Task AddAsync(Note note, CancellationToken cancellationToken);
 
-	/// <summary>A note by id.</summary>
+	/// <summary>A note by id, with its summary.</summary>
 	/// <param name="id">The id.</param>
 	/// <param name="cancellationToken">Cancellation.</param>
 	/// <returns>The note, or null.</returns>
-	Task<Note?> FindAsync(Guid id, CancellationToken cancellationToken);
+	Task<NoteEntry?> FindAsync(Guid id, CancellationToken cancellationToken);
 
-	/// <summary>The newest notes first.</summary>
+	/// <summary>The newest notes first, with their summaries.</summary>
 	/// <param name="limit">How many.</param>
 	/// <param name="cancellationToken">Cancellation.</param>
 	/// <returns>The notes.</returns>
-	Task<IReadOnlyList<Note>> LatestAsync(int limit, CancellationToken cancellationToken);
+	Task<IReadOnlyList<NoteEntry>> LatestAsync(int limit, CancellationToken cancellationToken);
+
+	/// <summary>Saves a note's summary, replacing the one it had.</summary>
+	/// <param name="summary">The summary.</param>
+	/// <param name="cancellationToken">Cancellation.</param>
+	/// <returns>A task.</returns>
+	Task SaveSummaryAsync(NoteSummary summary, CancellationToken cancellationToken);
 }
 
 /// <summary>Writes a note. One use case, one class: no mediator (ADR 0002).</summary>
@@ -68,12 +79,12 @@ public sealed class NoteQueries(INoteStore store)
 	/// <summary>The newest notes.</summary>
 	/// <param name="cancellationToken">Cancellation.</param>
 	/// <returns>The notes.</returns>
-	public Task<IReadOnlyList<Note>> LatestAsync(CancellationToken cancellationToken) => store.LatestAsync(ListLimit, cancellationToken);
+	public Task<IReadOnlyList<NoteEntry>> LatestAsync(CancellationToken cancellationToken) => store.LatestAsync(ListLimit, cancellationToken);
 
 	/// <summary>A note.</summary>
 	/// <param name="id">Its id.</param>
 	/// <param name="cancellationToken">Cancellation.</param>
 	/// <returns>The note, or <see cref="NotFound"/>.</returns>
-	public async Task<Result<Note>> GetAsync(Guid id, CancellationToken cancellationToken) =>
-		await store.FindAsync(id, cancellationToken).ConfigureAwait(false) is { } note ? note : NotFound;
+	public async Task<Result<NoteEntry>> GetAsync(Guid id, CancellationToken cancellationToken) =>
+		await store.FindAsync(id, cancellationToken).ConfigureAwait(false) is { } entry ? entry : NotFound;
 }

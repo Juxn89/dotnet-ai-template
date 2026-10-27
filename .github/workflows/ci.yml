@@ -29,3 +29,6 @@ jobs:
       # Every test project, the integration tests included: they start Postgres with Testcontainers on the
       # runner's Docker.
       - run: dotnet test -c Release --no-build
+      # The evals' harness and scoring on the reference answers (no model, no key, no cost). The paid run with
+      # Claude is manual (evals/README.md).
+      - run: dotnet run --project evals/App.Evals -c Release --no-build -- oracle

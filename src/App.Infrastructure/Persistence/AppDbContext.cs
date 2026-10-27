@@ -11,6 +11,10 @@ internal sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbC
 {
 	public DbSet<NoteRecord> Notes => Set<NoteRecord>();
 
+	public DbSet<NoteSummaryRecord> NoteSummaries => Set<NoteSummaryRecord>();
+
+	public DbSet<AiUsageRecord> AiUsage => Set<AiUsageRecord>();
+
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		modelBuilder.Entity<NoteRecord>(note =>
@@ -20,6 +24,25 @@ internal sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbC
 			note.Property(static n => n.Title).HasMaxLength(Domain.Notes.Note.MaxTitleLength).IsRequired();
 			note.Property(static n => n.Body).HasMaxLength(Domain.Notes.Note.MaxBodyLength).IsRequired();
 			note.HasIndex(static n => n.CreatedAt);
+		});
+
+		modelBuilder.Entity<NoteSummaryRecord>(summary =>
+		{
+			summary.ToTable("note_summaries");
+			summary.HasKey(static s => s.NoteId);
+			summary.Property(static s => s.Summary).HasMaxLength(Domain.Notes.NoteSummary.MaxSummaryLength).IsRequired();
+			summary.Property(static s => s.Tags).HasColumnType("text[]");
+			summary.HasOne<NoteRecord>().WithOne().HasForeignKey<NoteSummaryRecord>(static s => s.NoteId).OnDelete(DeleteBehavior.Cascade);
+		});
+
+		modelBuilder.Entity<AiUsageRecord>(usage =>
+		{
+			usage.ToTable("ai_usage");
+			usage.HasKey(static u => u.Id);
+			usage.Property(static u => u.Operation).IsRequired();
+			usage.Property(static u => u.Model).IsRequired();
+			usage.Property(static u => u.CostUsd).HasPrecision(12, 6);
+			usage.HasIndex(static u => u.OccurredAt);
 		});
 	}
 }
@@ -34,6 +57,40 @@ internal sealed class NoteRecord
 	public required string Body { get; set; }
 
 	public Instant CreatedAt { get; set; }
+}
+
+/// <summary>A row of <c>note_summaries</c>: one per note, the latest.</summary>
+internal sealed class NoteSummaryRecord
+{
+	public Guid NoteId { get; set; }
+
+	public required string Summary { get; set; }
+
+	public List<string> Tags { get; set; } = [];
+
+	public Instant CreatedAt { get; set; }
+}
+
+/// <summary>A row of <c>ai_usage</c>: one model call.</summary>
+internal sealed class AiUsageRecord
+{
+	public Guid Id { get; set; }
+
+	public Instant OccurredAt { get; set; }
+
+	public required string Operation { get; set; }
+
+	public required string Model { get; set; }
+
+	public long InputTokens { get; set; }
+
+	public long OutputTokens { get; set; }
+
+	public decimal CostUsd { get; set; }
+
+	public long LatencyMs { get; set; }
+
+	public string? PromptHash { get; set; }
 }
 
 internal static class PersistenceSetup

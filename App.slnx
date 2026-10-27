@@ -13,4 +13,7 @@
     <Project Path="tests/App.Architecture.Tests/App.Architecture.Tests.csproj" />
     <Project Path="tests/App.Integration.Tests/App.Integration.Tests.csproj" />
   </Folder>
+  <Folder Name="/evals/">
+    <Project Path="evals/App.Evals/App.Evals.csproj" />
+  </Folder>
 </Solution>

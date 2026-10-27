@@ -48,8 +48,9 @@ from, or in options classes validated at startup.
 
 ## Verification gate
 
-Nothing is done until it ran: `dotnet build` (warnings are errors), `dotnet test` and
-`dotnet format whitespace --verify-no-changes`. When you add a rule-like test, prove it can fail.
+Nothing is done until it ran: `dotnet build` (warnings are errors), `dotnet test`,
+`dotnet format whitespace --verify-no-changes` and the evals' oracle. A prompt change is followed by a paid eval
+run (`evals/README.md`). When you add a rule-like test, prove it can fail.
 
 ## Style
 

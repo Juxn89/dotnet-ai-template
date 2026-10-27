@@ -7,6 +7,12 @@ using NodaTime.Serialization.SystemTextJson;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// A scripted model answers anyone with whatever the script says: it exists for tests, evals and rehearsals only.
+if (DependencyInjection.UsesScriptedModel(builder.Configuration) && !builder.Environment.IsDevelopment() && !builder.Environment.IsEnvironment("Testing"))
+{
+	throw new InvalidOperationException("Ai:ScriptFile is set outside Development: the scripted model is for tests and rehearsals only.");
+}
+
 builder.AddServiceDefaults();
 builder.Services.AddProblemDetails();
 
@@ -36,6 +42,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapDefaultEndpoints();
 app.MapNoteEndpoints();
+app.MapAiEndpoints();
 
 await app.RunAsync();
 
