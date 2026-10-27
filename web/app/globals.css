@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Slate ink and paper with one lime accent: the template's own brand, distinct from P1-P4. The accent is lime-700
+   for text and buttons (4.5:1 on white); the bright lime is only a fill behind dark text. */
+@theme {
+	--color-paper: #f6f7f9;
+	--color-card: #ffffff;
+	--color-ink: #0f172a;
+	--color-muted: #5b6676;
+	--color-line: #e2e6ec;
+	--color-brand: #4d7c0f;
+	--color-brand-dark: #3f6212;
+	--color-brand-soft: #ecfccb;
+	--color-slate: #334155;
+	--color-danger: #b42318;
+	--color-danger-soft: #fde9e7;
+
+	--font-sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
+body {
+	background: var(--color-paper);
+	color: var(--color-ink);
+	font-family: var(--font-sans);
+}
+
+.tabular {
+	font-variant-numeric: tabular-nums;
+}

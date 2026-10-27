@@ -1,0 +1,37 @@
+{
+  "name": "dotnet-ai-template-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3040",
+    "dev:aspire": "next dev",
+    "build": "next build",
+    "start": "next start --port 3040",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "e2e": "playwright test",
+    "e2e:deps": "docker run --rm -d --name dotnet-ai-template-e2e-db -p 5434:5432 -e POSTGRES_PASSWORD=postgres postgres:18.6-alpine",
+    "demo": "playwright test --config playwright.demo.config.ts"
+  },
+  "dependencies": {
+    "lucide-react": "1.52.0",
+    "next": "16.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "10.12.0",
+    "eslint-config-next": "16.4.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.20.0"
+}

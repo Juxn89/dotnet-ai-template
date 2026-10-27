@@ -1,0 +1,25 @@
+[
+  {
+    "match": "proveedor de café",
+    "reply": {
+      "language": "Spanish",
+      "summary": "Llamar al proveedor de café el lunes para pedir 10 kilos y confirmar el precio.",
+      "tags": [
+        "shopping",
+        "work",
+        "money"
+      ]
+    }
+  },
+  {
+    "match": "newsletter",
+    "reply": {
+      "language": "English",
+      "summary": "Start a monthly newsletter of coffee recipes to bring customers back.",
+      "tags": [
+        "ideas",
+        "work"
+      ]
+    }
+  }
+]

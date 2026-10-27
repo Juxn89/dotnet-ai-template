@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="460" viewBox="0 0 1280 460" role="img" aria-labelledby="title desc">
+<title id="title">dotnet-ai-template</title>
+<desc id="desc">A .NET 10 template for AI products: layered slices, Claude behind a port, every call metered and capped, evals with an oracle in CI.</desc>
+<style>
+	.flow { stroke-dasharray: 6 7; animation: flow 1.6s linear infinite; }
+	.pop { opacity: 0; animation: pop .5s ease-out forwards; }
+	.glow { animation: glow 2.4s ease-in-out infinite alternate; }
+	@keyframes flow { to { stroke-dashoffset: -26; } }
+	@keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+	@keyframes glow { from { opacity: .55; } to { opacity: 1; } }
+	@media (prefers-reduced-motion: reduce) { .flow, .glow { animation: none; } .pop { animation: none; opacity: 1; } }
+</style>
+<defs>
+	<linearGradient id="brand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#84cc16"/><stop offset=".6" stop-color="#4d7c0f"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+	<linearGradient id="metric" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#84cc16"/><stop offset=".55" stop-color="#4d7c0f"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+	<radialGradient id="orbMain"><stop offset="0" stop-color="#84cc16" stop-opacity="0.14"/><stop offset="1" stop-color="#84cc16" stop-opacity="0"/></radialGradient>
+	<radialGradient id="orbAmber"><stop offset="0" stop-color="#f59e0b" stop-opacity="0.098"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+	<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#334155" fill-opacity="0.07"/></pattern>
+	<clipPath id="frame"><rect width="1280" height="460" rx="28"/></clipPath>
+	<filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.12"/></filter>
+</defs>
+<g clip-path="url(#frame)">
+	<rect width="1280" height="460" fill="#f7f9f4"/>
+	<rect width="1280" height="460" fill="url(#dots)"/>
+	<circle cx="180" cy="40" r="340" fill="url(#orbMain)"/>
+	<circle cx="1060" cy="470" r="360" fill="url(#orbAmber)"/>
+</g>
+<rect x=".5" y=".5" width="1279" height="459" rx="28" fill="none" stroke="#e1e7da"/>
+
+<g transform="translate(72 70)">
+	<rect width="290" height="30" rx="15" fill="#ffffff" stroke="#e1e7da"/>
+	<circle cx="18" cy="15" r="4.5" fill="#84cc16" class="glow"/>
+	<text x="31" y="20" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" letter-spacing=".1em" fill="#475569">GITHUB TEMPLATE · .NET 10 · MIT</text>
+</g>
+<text x="68" y="168" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="-.03em" fill="#0f172a">dotnet-<tspan fill="url(#brand)">ai-template</tspan></text>
+<text x="72" y="226" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">Start an AI product on day 1, not day 10.</text>
+<text x="72" y="264" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#475569">Layers, a model behind a port, costs and caps, evals, E2E.</text>
+<text x="72" y="296" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#475569">Extracted from four shipped projects, not designed in a vacuum.</text>
+<g transform="translate(72 352)"><rect width="164.4" height="32" rx="16" fill="#ffffff" stroke="#e1e7da"/><text x="82.2" y="21" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#0f172a">Claude Haiku 5.5</text></g><g transform="translate(244.4 352)"><rect width="164.4" height="32" rx="16" fill="#ffffff" stroke="#e1e7da"/><text x="82.2" y="21" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#0f172a">Metered &amp; capped</text></g><g transform="translate(416.8 352)"><rect width="122.4" height="32" rx="16" fill="#ffffff" stroke="#e1e7da"/><text x="61.2" y="21" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#0f172a">Evals in CI</text></g><g transform="translate(547.2 352)"><rect width="172.8" height="32" rx="16" fill="#ffffff" stroke="#e1e7da"/><text x="86.4" y="21" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#0f172a">E2E without a key</text></g><g transform="translate(728 352)"><rect width="114" height="32" rx="16" fill="#ffffff" stroke="#e1e7da"/><text x="57" y="21" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#0f172a">rename.mjs</text></g>
+
+<!-- The note -->
+<g transform="translate(668 62)" filter="url(#soft)">
+	<rect width="232" height="80" rx="16" fill="#ffffff" stroke="#e1e7da"/>
+	<text x="16" y="28" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">Pedido de café</text>
+	<text x="16" y="49" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">Llamar al proveedor el lunes,</text>
+	<text x="16" y="66" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">10 kilos, confirmar la factura…</text>
+</g>
+
+<path d="M784 144 C 784 168, 790 172, 790 188" fill="none" stroke="#4d7c0f" stroke-width="2.2" class="flow"/>
+
+<!-- The metered call -->
+<g transform="translate(668 190)" filter="url(#soft)">
+	<rect width="232" height="132" rx="18" fill="#ffffff" stroke="#e1e7da"/>
+	<text x="18" y="30" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="700" letter-spacing=".08em" fill="#4d7c0f">METERED · CAPPED</text>
+	<text x="18" y="58" font-family="'Cascadia Code', 'SFMono-Regular', Consolas, Menlo, monospace" font-size="12.5" fill="#0f172a">spent today  0.0002</text>
+	<text x="18" y="80" font-family="'Cascadia Code', 'SFMono-Regular', Consolas, Menlo, monospace" font-size="12.5" fill="#0f172a">daily budget 1.00</text>
+	<g transform="translate(18 96)"><g class="pop" style="animation-delay:.5s">
+		<rect width="140" height="22" rx="11" fill="#16a34a" fill-opacity=".14" stroke="#16a34a"/>
+		<text x="70" y="15" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#16a34a">under the cap ✓</text>
+	</g></g>
+</g>
+
+<path d="M900 256 C 944 256, 944 186, 990 182" fill="none" stroke="#f59e0b" stroke-width="2.2" class="flow"/>
+
+<!-- The answer, checked by the domain -->
+<g transform="translate(990 92)" filter="url(#soft)">
+	<rect width="224" height="214" rx="18" fill="#ffffff" stroke="#e1e7da"/>
+	<text x="16" y="30" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0f172a">Summary</text>
+	<circle cx="204" cy="25" r="4.5" fill="#f59e0b" class="glow"/>
+	<text x="16" y="56" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">Call the coffee supplier on</text>
+	<text x="16" y="74" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">Monday for 10 kg and the</text>
+	<text x="16" y="92" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">invoice.</text>
+	<g transform="translate(16 128)"><g class="pop" style="animation-delay:1.2s"><rect width="76" height="24" rx="12" fill="#334155"/><text x="38" y="16.5" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#fff">shopping</text></g></g><g transform="translate(100 128)"><g class="pop" style="animation-delay:1.3499999999999999s"><rect width="76" height="24" rx="12" fill="#334155"/><text x="38" y="16.5" text-anchor="middle" font-family="'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#fff">money</text></g></g>
+	<text x="16" y="178" font-family="'Cascadia Code', 'SFMono-Regular', Consolas, Menlo, monospace" font-size="10.5" fill="#475569">tags from the domain's list</text>
+	<text x="16" y="196" font-family="'Cascadia Code', 'SFMono-Regular', Consolas, Menlo, monospace" font-size="10.5" fill="#475569">USD 0.000099 · ai_usage</text>
+</g>
+</svg>

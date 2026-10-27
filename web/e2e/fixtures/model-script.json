@@ -1,0 +1,23 @@
+[
+  {
+    "match": "proveedor de café",
+    "reply": {
+      "language": "Spanish",
+      "summary": "Llamar al proveedor de café el lunes para pedir 10 kilos.",
+      "tags": [
+        "work",
+        "shopping"
+      ]
+    }
+  },
+  {
+    "match": "sin etiquetas válidas",
+    "reply": {
+      "language": "Spanish",
+      "summary": "Una nota de prueba.",
+      "tags": [
+        "urgent"
+      ]
+    }
+  }
+]
